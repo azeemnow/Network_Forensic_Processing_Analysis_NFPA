@@ -12,3 +12,5 @@ NFPA tool helps optimize investigations by reducing errors that are typically in
  1. quickly process case evidence through  various popular tools and utilities all by a simple script execution 
  2. review results from 60+ individual, multi-purpose queries pre-ran again the evidence
  3. view the native output from all of the evidence process utilities - providing the opportunity for any validation or further analysis
+
+All of the above is organized in an easy-to-understand structure which allows the analyst to quickly find answers as well as the authoritative source of those answers. 
