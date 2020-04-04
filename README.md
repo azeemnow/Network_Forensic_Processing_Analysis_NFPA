@@ -14,3 +14,9 @@ NFPA tool helps optimize investigations by reducing errors that are typically in
  3. view the native output from all of the evidence process utilities - providing the opportunity for any validation or further analysis
 
 All of the above is organized in an easy-to-understand structure which allows the analyst to quickly find answers as well as the authoritative source of those answers. 
+
+# Dependecies
+A key requirement when designing NFPA was to keep dependencies as minimum as possible. I wanted to make sure I leverage a platform that is already commonly used by analysts which is pre-configured with all of the necessary tools and capabilities. This would allow analysts to instantly begin their work on investigations and not have to deal with the underlying system engineering. 
+
+To that end, here is the only dependency:
+ - SANS SIFT Ubuntu Workstation
