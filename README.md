@@ -34,3 +34,11 @@ NFPA is made of the 4 required components:
  2. **sift_tools.txt**: This is the first file that NFPA_v1.sh calls. The purpose of this file is to provide NFPA with a list of all of the evidence processing tasks that need to be performed. If you view the file, it cleanly lists each task along with the specific tool and its respected command options.
  3. **sof-elk_update.sh**: This is a slightly modified version of Phil Hagen's 'nfdump2sof-elk.sh' script (https://github.com/philhagen/sof-elk/blob/master/supporting-scripts/nfdump2sof-elk.sh. The purpose of this file is to convert NetFlow data in a format that SOF-ELK can ingest. This is a slightly modified version of Phil Hagen's 'nfdump2sof-elk.sh' script. The purpose of this file is to convert NetFlow data in a format that SOF-ELK can ingest. This file is used by NFPA_v1.sh to complete one of its evidence processing tasks.
  4. **acommands.txt**: This file is very similar to sift_tools.txt in that its simply a text file that lists a series commands on each line. However, this file is used to perform various analysis tasks on the evidence that sift_tools.txt has helped to process. There are over 60 individual tasks that this file processes but due to its simple one-line format, analysts can easily see details of each task and understand certain commands options that are used to generate outputs.
+ 
+ ### Install
+ - [ ] Download the Zip File (NEPA_v1.zip)
+	 - [ ] Click on the green “Clone or download” towards to top-right of the page
+	 - [ ] This will download all of 4 component that you need in a ZIP compressed format.
+	 - [ ] Unzip the archive to a location of your choosing 
+	 - [ ] Modify the permission of the NEPA_v1.sh file
+	 - [ ] Chmod +x NEPA_v1.sh
