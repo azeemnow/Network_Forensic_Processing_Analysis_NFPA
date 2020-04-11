@@ -42,3 +42,6 @@ NFPA is made of the 4 required components:
 	 - [ ] Unzip the archive to a location of your choosing 
 	 - [ ] Modify the permission of the NEPA_v1.sh file
 	 - [ ] Chmod +x NEPA_v1.sh
+
+### Usage
+Confirm that you have successfully completed the last step of the Install setup - Modify the permission of the NEPA-v1.sh
