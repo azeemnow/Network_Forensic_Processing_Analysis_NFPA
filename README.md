@@ -22,3 +22,10 @@ To that end, here is the only dependency:
  - SANS SIFT Ubuntu Workstation (https://digital-forensics.sans.org/community/downloads)
 
 Additionally, the NFPA is built-in Bash. Which means you do not have to import any specific libraries or run a certain version. Another advantage of using Bash is that you will most likely be able to run NFPA on other Linux distributions (may need to install some purpose-built network forensic tools separately).
+
+# **Getting Started**
+
+Here is what you need to know to get started:
+
+### Components
+NFPA is made of the 4 required components:
