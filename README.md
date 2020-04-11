@@ -29,3 +29,8 @@ Here is what you need to know to get started:
 
 ### Components
 NFPA is made of the 4 required components:
+
+ 1. **NFPA_v1.sh:** is the main Bash script. You can consider it as the brains of the whole operation. It is the only script that you will interact with by simply launching it.
+ 2. **sift_tools.txt**: This is the first file that NFPA_v1.sh calls. The purpose of this file is to provide NFPA with a list of all of the evidence processing tasks that need to be performed. If you view the file, it cleanly lists each task along with the specific tool and its respected command options.
+ 3. **sof-elk_update.sh**: This is a slightly modified version of Phil Hagen's 'nfdump2sof-elk.sh' script (https://github.com/philhagen/sof-elk/blob/master/supporting-scripts/nfdump2sof-elk.sh. The purpose of this file is to convert NetFlow data in a format that SOF-ELK can ingest. This is a slightly modified version of Phil Hagen's 'nfdump2sof-elk.sh' script. The purpose of this file is to convert NetFlow data in a format that SOF-ELK can ingest. This file is used by NFPA_v1.sh to complete one of its evidence processing tasks.
+ 4. **acommands.txt**: This file is very similar to sift_tools.txt in that its simply a text file that lists a series commands on each line. However, this file is used to perform various analysis tasks on the evidence that sift_tools.txt has helped to process. There are over 60 individual tasks that this file processes but due to its simple one-line format, analysts can easily see details of each task and understand certain commands options that are used to generate outputs.
