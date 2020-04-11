@@ -47,9 +47,7 @@ NFPA is made of the 4 required components:
 Confirm that you have successfully completed the last step of the Install setup - Modify the permission of the NEPA-v1.sh
 
 Run the script using:
- 1. ./NEPA-v1.sh
- 2. The script will ask you to provide a unique case number.
- 3. The script will ask you to provide a full-path to the evidence PCAP file.
-  - Please note, tab-complete option is not available It is advised that
-   you collect the full-path to your evidence prior launching the
-   script.
+ - ./NEPA-v1.sh
+ - The script will ask you to provide a unique case number
+ - The script will ask you to provide a full-path to the evidence PCAP file.
+	 - Please note, tab-complete option is not available It is advised that you collect the full-path to your evidence prior launching the script.
