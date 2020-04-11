@@ -48,6 +48,6 @@ Confirm that you have successfully completed the last step of the Install setup 
 
 Run the script using:
  - ./NEPA-v1.sh
- - The script will ask you to provide a unique case number
+ - The script will ask you to provide a unique case number.
  - The script will ask you to provide a full-path to the evidence PCAP file.
 	 - Please note, tab-complete option is not available It is advised that you collect the full-path to your evidence prior launching the script.
