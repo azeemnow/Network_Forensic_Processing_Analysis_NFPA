@@ -83,3 +83,17 @@ Following tools are run against the evidence during the processing stage:
  4. **Ngrep:** “allows you to specify an extended regular or hexadecimal expression to match against data payloads of packets.” (https://github.com/jpr5/ngrep)
  5. **TCPflow:** “useful tool for understanding network packet flows and performing network forensics. Unlike programs such as WireShark, which show lots of packets or a single TCP connection, tcpflow can show hundreds, thousands, or hundreds of thousands of TCP connections in context.” (https://github.com/simsong/tcpflow)
  6. **Egrep:** “scans a specified file line by line, returning lines that contain a pattern matching a given regular expression”
+ 
+ # Future Development
+ The NFPA tool was designed with future development in mind.
+ 
+The unique structure of having the brains of the tool (**NFPA_V1.sh**) separate from the evidence processing code (**sift_tools.txt**) and the analysis/reporting code (**acommands.txt**), not only makes it easy to understand but also presents endless opportunities for expansion. 
+
+Anyone can easily modify either of the supporting code-bases (**sift_tools.txt**, **acommands.txt**) to meet their specific needs. 
+
+For instance, if you want to add another processing task, simply append it with the appropriate command-line options to the **sift_tools.txt** file. 
+
+Similarly, if you want to change any of the analysis commands, simply append your updates to the **acommands.txt** file.
+
+The main **NFPA_v1.sh** should automatically recognize and incorporate the updates.
+ 
