@@ -96,4 +96,8 @@ For instance, if you want to add another processing task, simply append it with 
 Similarly, if you want to change any of the analysis commands, simply append your updates to the **acommands.txt** file.
 
 The main **NFPA_v1.sh** should automatically recognize and incorporate the updates.
- 
+
+# Tested Configuration*
+
+NFPA has been developed and tested on SIFTv3:
+*Linux siftworkstation 4.4.0-131-generic #157-Ubuntu SMP Thu Jul 12 15:51:36 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux*
