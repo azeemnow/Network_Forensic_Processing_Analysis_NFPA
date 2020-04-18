@@ -107,3 +107,10 @@ The main **NFPA_v1.sh** should automatically recognize and incorporate the updat
 
 NFPA has been developed and tested on **SIFTv3**:
 *Linux siftworkstation 4.4.0-131-generic #157-Ubuntu SMP Thu Jul 12 15:51:36 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux*
+
+# Inspirations and References
+
+ 1. https://github.com/packetrat/packethunting/blob/master/README.md 
+ 2. https://401trg.com/triaging-large-packet-captures-4-key-tshark-commands-to-start-your-investigation/
+ 3. https://github.com/mitchellkrogza/nginx-ultimate-bad-bot-blocker/blob/master/_generator_lists/bad-user-agents.list 
+ 4. https://www.securitynik.com/2015/12/some-tshark-examples-mix-of-basic-and.html
