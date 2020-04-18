@@ -76,3 +76,10 @@ Following tools are run against the evidence during the processing stage:
  ## Evidence Analysis
  
  Following tools are run against the processed-evidence to generate the various analysis reports:
+ 
+ 1. **NFDump:** “process netflow and sflow data.” (https://github.com/phaag/nfdump)
+ 2. **TShark:** “ terminal oriented version of Wireshark designed for capturing and displaying packets” (https://www.wireshark.org/docs/wsug_html_chunked/AppToolstshark.html)
+ 3. **TCPdump**: “prints out a description of the contents of packets on a network interface that match the boolean expression” (https://www.tcpdump.org/manpages/tcpdump.1.html)
+ 4. **Ngrep:** “allows you to specify an extended regular or hexadecimal expression to match against data payloads of packets.” (https://github.com/jpr5/ngrep)
+ 5. **TCPflow:** “useful tool for understanding network packet flows and performing network forensics. Unlike programs such as WireShark, which show lots of packets or a single TCP connection, tcpflow can show hundreds, thousands, or hundreds of thousands of TCP connections in context.” (https://github.com/simsong/tcpflow)
+ 6. **Egrep:** “scans a specified file line by line, returning lines that contain a pattern matching a given regular expression”
