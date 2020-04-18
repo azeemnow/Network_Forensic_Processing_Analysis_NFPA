@@ -63,4 +63,12 @@ One important note about skipping tasks. If you skip any of the evidence process
 Coming...
 
 # Tools Incorporated
-## Evidence
+## Evidence Processing Tools
+
+Following tools are run against the evidence during the processing stage:
+
+  1. **Capinfos:** “capinfos gets metadata about a packet capture. You can be very granular about what pieces of data you want displayed and the output format.” (https://tshark.dev/analyze/get_info/capinfos/)
+ 2. **Zeek (Bro):** “A powerful framework for network traffic analysis and security monitoring.” (https://github.com/zeek/zeek)
+ 3. **PassiveDNS:** “PassiveDNS sniffs traffic from an interface or reads a pcap-file and outputs the DNS-server answers to a log file. (https://github.com/gamelinux/passivedns)
+ 4. **Nfpcapd:** “ create netflow data from precollected pcap traffic.” (https://github.com/phaag/nfdump)
+ 5. **sof-elk_update.sh:** The purpose of this file is to convert NetFlow data in a format that SOF-ELK can ingest. This is a slightly modified version of Phil Hagen's : (https://github.com/philhagen/sof-elk/blob/master/supporting-scripts/nfdump2sof-elk.sh)
