@@ -51,3 +51,10 @@ Run the script using:
  - The script will ask you to provide a unique case number.
  - The script will ask you to provide a full-path to the evidence PCAP file.
 	 - Please note, tab-complete option is not available It is advised that you collect the full-path to your evidence prior launching the script.
+
+# Fail Safe Design
+As mentioned earlier, one of the key requirements for NFPA was "click & forget". However, I understood that there are situations where you may not want to process the evidence through all of the available tools. 
+
+To provide this flexibility, I incorporated the 10-second rule. Essentially, during the evidence processing phase of the tool, you are given 10-seconds to script any particular task before it begins. The name of the task is highlighted on the screen, and you can type-in "no" to skip that particular task. However, if no response is received, the default is to run all of the tasks.
+
+One important note about skipping tasks. If you skip any of the evidence processing tasks, then any of the analysis tasks that were depended on that task would not run. Additionally, any of the associated analysis reports will be saved empty.
