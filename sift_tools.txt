@@ -1,0 +1,5 @@
+capinfos -Hae $file >> $dir/$case/Timeframes_case_$case/timeframe_capinfos.txt
+bro -r $file && mv $dir/*.log $dir/$case/Zeek_case_$case/
+passivedns -r $file -l $dir/$case/PassiveDNS_case_$case/passivedns.txt -L $dir/$case/PassiveDNS_case_$case/passivedns.txt
+nfpcapd -r $file -S 1 -z -l $dir/$case/Netflow_case_$case/
+./sof-elk_update.sh -r $dir/$case/Netflow_case_$case/ -w $dir/$case/Netflow_to_Soft-ELK_case_$case/nf_export.txt
