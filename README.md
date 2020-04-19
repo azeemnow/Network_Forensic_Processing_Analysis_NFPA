@@ -21,12 +21,6 @@ A key requirement when designing NFPA was to keep dependencies as minimum as pos
 To that end, here is the only dependency:
  - SANS SIFT Ubuntu Workstation (https://digital-forensics.sans.org/community/downloads)
 
-# Inspirations and References
- 1. https://github.com/packetrat/packethunting/blob/master/README.md 
- 2. https://401trg.com/triaging-large-packet-captures-4-key-tshark-commands-to-start-your-investigation/
- 3. https://github.com/mitchellkrogza/nginx-ultimate-bad-bot-blocker/blob/master/_generator_lists/bad-user-agents.list 
- 4. https://www.securitynik.com/2015/12/some-tshark-examples-mix-of-basic-and.html
-
 Additionally, the NFPA is built-in Bash. Which means you do not have to import any specific libraries or run a certain version. Another advantage of using Bash is that you will most likely be able to run NFPA on other Linux distributions (may need to install some purpose-built network forensic tools separately).
 
 # **Getting Started**
