@@ -1,0 +1,101 @@
+#!/bin/bash
+
+t1=`date +%s`
+echo "------------------Network Forensic Processing & Analysis (NFPA) ------------------"                                       
+read -p  "Thanks for choosing NFPA! Please enter your investigation case number to begin:  " case
+dir=$(pwd)
+if [[ -d "$case" ]]
+then
+	echo "Case number already exists, please choose a different case number"
+	exit 1
+fi
+
+echo Your case number is "$case"
+export case
+mkdir -p $case
+dir=$(pwd)
+cd $case
+mkdir -p Timeframes_case_$case
+mkdir -p PassiveDNS_case_$case
+mkdir -p Zeek_case_$case
+mkdir -p Netflow_case_$case
+mkdir -p Netflow_to_Soft-ELK_case_$case
+mkdir -p SSL_TLS_Profile_case_$case
+mkdir -p analysis_case_$case/{analysis_http,analysis_dns,analysis_ip,analysis_tcp,analysis_udp,analysis_stats_netflow,analysis_contact_info,analysis_mysql,analysis_pii_confidential,analysis_passwords,analysis_mssql,analysis_smb_cifs,analysis_email,analysis_mobile_hardware,analysis_zeek}
+
+read -t 3600 -p "Please input PCAP evidence file with the full path (*Note: tab-completion is not supported*). e.g. /home/user/desktop/file.pcap: " file </dev/tty
+echo $file
+
+[ -z "$file" ] && echo "File name is empty...exiting. Please relaunch the scrip!" && exit 1
+
+
+status=$?
+count=1
+total=$(wc -l $dir/sift_tools.txt)
+while read -r i; do 
+	echo $i | awk '{print "------------------Starting " $1 " Tool ------------"}' >> $dir/$case/status.txt
+	echo $i | awk '{print "------------------Starting " $1 " Tool ------------"}'
+	echo "input no to skip running the $i tool"    
+	read -t 10 -p "input your choice: " input </dev/tty
+	if [ "$input" == "no" ]
+	then
+		echo "Skipping the $i tool"
+		echo $i | awk '{print $1 " was manually skipped"}' >> $dir/$case/status.txt 
+		
+	else	
+		echo $i | awk '{print $1 " is currently running"}'  
+		echo $i | awk '{print $1 " is selected to run"}' >> $dir/$case/status.txt
+		
+		echo "executing process $count of $total"
+
+		count=$((count+1))
+
+		cd $dir
+		start=`date +%s` 
+		eval $i 2>&1 | tee -a $dir/$case/output_logs.txt 
+		if (($?))
+		then
+		echo $i  | awk '{print "running " $1 " failed please check installation"}' >> $dir/$case/status.txt
+		else
+		
+		end=`date +%s`
+		runtime=$((end-start))    
+		echo $runtime
+		echo $i | awk -v s="$runtime" '{print "running " $1 " command was successful & it consumed " s " seconds to complete"}' >> $dir/$case/status.txt 
+		fi
+	fi
+
+done < $dir/sift_tools.txt 
+
+sed -i 's/sh/Netflow_to_Soft_ELK Tool/' $dir/$case/status.txt
+sed -i 's/nfpcapd/Netflow Tool/'  $dir/$case/status.txt 
+sed -i 's/passivedns/PassiveDNS Tool/'  $dir/$case/status.txt  
+sed -i 's/capinfo/Timeframes Tool/'  $dir/$case/status.txt
+sed -i 's/bro/Zeek Tool/'  $dir/$case/status.txt
+
+#sh $dir/sof-elk_update.sh
+#ret_code=$?
+#if (($?))
+#then
+# echo "running Netflow_to_Soft_ELK Tool failed please check installation" >> $dir/$case/status.txt
+#fi
+
+echo "------------------Processing of the evidence completed! Now perfoming various analysis and reporting operations------------------" | tee -a $dir/$case/status.txt
+
+an=1
+t=$(wc -l $dir/acommands.txt)
+while read -r j; do
+	cd $dir/$case/analysis_case_$case/
+	echo "executing analysis command $an of $t"
+	echo "$j is running ..." >> $dir/$case/status.txt
+	an=$((an+1))
+
+	eval $j  2>&1 | tee -a $dir/$case/output_logs.txt
+
+done < $dir/acommands.txt	
+echo $disku
+t2=`date +%s`
+t3=$((t2-t1))
+dsk=`du -sh "$dir/$case"| cut -f1`
+printf "The script completed!------------------ Please find raw evidence processing output from all of the tools at: $dir/$case and find \ncomplete analysis reports at $dir/$case/analysis_case_$case/.\n ------------------ The screen output during the script execution can be found at $dir/$case/output_logs.txt and \nstatus logs can be found at $dir/$case/status.txt\n ------------------ The total time consumed while executing the script was $t3 seconds and total disk space used is $dsk. ------------------Thanks again for using NFPA! Please provide any feedback at azeemnow.com or on Twitter @azeemnow.\n ------------------" | tee -a $dir/$case/status.txt
+
