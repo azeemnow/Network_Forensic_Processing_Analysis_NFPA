@@ -65,8 +65,8 @@ To provide this flexibility, I incorporated the 10-second rule. Essentially, dur
 
 One important note about skipping tasks. If you skip any of the evidence processing tasks, then any of the analysis tasks that were depended on that task would not run. Additionally, any of the associated analysis reports will be saved empty.
 
-#Demo
-Coming...
+# Demo
+
 
 # Tools Incorporated
 ## Evidence Processing Tools
