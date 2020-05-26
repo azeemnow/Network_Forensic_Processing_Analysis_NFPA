@@ -17,7 +17,6 @@ tshark -nn -r $file -V -Y tcp.port==445 |egrep "Arrival Time: |Tree Id: |\[Accou
 tshark -nn -r $file -V -Y tcp.port==3306 | egrep 'Username:|Password:|Statement:|text:' > analysis_mysql/mysql_pass_hashe_query_resp.txt
 tshark -nn -r $file -V -Y tcp.port==1433 | egrep "Query:|Data:|Data \[truncated\]:" > analysis_mssql/mssql_query_resp.txt
 tshark -nn -r $file -V -Y udp.port==5353 |egrep "Name: |product=|model=" |sort |uniq |egrep -v "Domain Name:|Name: _" > analysis_mobile_hardware/mobile_hardware_mDNS_info.txt
-Binary file (standard input) matches
 tcpdump -nn -r $file | grep " IP " | awk '{print$3}' | cut -d. -f -4 |sort |uniq -c |sort -nr |head > analysis_stats_netflow/top_10_src_ips.txt
 tcpdump -nn -r $file | grep " IP " | awk '{print$5}' | cut -d. -f -4 |sort |uniq -c |sort -nr |head > analysis_stats_netflow/top_10_dst_ips.txt
 tcpdump -nn -r $file | grep " IP " | awk '{print$3,$4,$5}' |sort |uniq -c |sort -nr |head > analysis_stats_netflow/top_conn_pairs.txt
@@ -25,7 +24,6 @@ tcpdump -nn -v -r $file |grep " IP " |awk -F, '{print$6}' |sort |uniq -c |sort -
 tcpdump -nn -r $file |grep " IP " |grep "Flags \[S\]" |awk '{print$5}' |cut -d. -f 5- |sort |uniq -c |sort -nr |head > analysis_stats_netflow/top_dst_ports_SYN.txt
 tcpdump -nn -r $file port 53 | egrep " A\? " |  uniq -ic | sort -nr | head > analysis_dns/top_domains.txt
 tcpdump -nn -r $file port 53 | egrep " A\? " | awk '{print$8}' |sort |uniq -c |sort -nr |head > analysis_dns/top_subdomains.txt
-Binary file (standard input) matches
 tcpflow -r $file -c -s port 80 | grep -v "\.\." | grep "^Set-Cookie" | sort |uniq > analysis_http/uniq_cookies_p80.txt
 tcpflow -r $file -c -s port 80 | grep -v "\.\." | egrep -i "session.id|sessionid|session.token|SESSID|UUID|oauth|Authorization:" > analysis_http/uniq_session_ids_p80.txt
 tcpflow -r $file  -c -s | egrep -i --color '\w+@[a-zA-Z_]+?\.(com|org|net|gov|mil|edu|co|biz|info)' > analysis_contact_info/email_addresses_common_tlds.txt
@@ -70,5 +68,3 @@ cat $dir/$case/Zeek_case_$case/dns.log | bro-cut ts uid id.orig_h id.orig_p id.r
 cat $dir/$case/Zeek_case_$case/conn.log | bro-cut ts uid id.orig_h id.orig_p id.resp_h id.resp_p proto service duration orig_bytes resp_bytes conn_state orig_pkts > $dir/$case/analysis_case_$case/analysis_zeek/zeek_conn_log.txt
 
 cat $dir/$case/Zeek_case_$case/smtp.log | bro-cut ts uid id.orig_h id.orig_p id.resp_h id.resp_p helo mailfrom rcptto date from to cc reply_to msg_id in_reply_to subject x_originating_ip first_received second_received last_reply path user_agent tls fuids >  $dir/$case/analysis_case_$case/analysis_zeek/zeek_smtp_log.txt
-
-
